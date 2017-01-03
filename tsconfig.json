@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": false,
+        "diagnostics": true,
+        "experimentalDecorators": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "module": "commonjs",
+        "pretty": true,
+        "removeComments": true,
+        "noEmitOnError": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "target": "ES6",
+        "outDir": "build"
+    },
+    "exclude": [
+        "dist",
+        "jsx",
+        "node_modules",
+        "src/less",
+        "static",
+        "tools"
+    ],
+    "filesGlob": [
+        "typings",
+        "src"
+    ]
+}
