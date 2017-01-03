@@ -1,0 +1,29 @@
+{
+  "name": "language-detector",
+  "version": "1.0.0",
+  "description": "ts-lib  [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ts-lib)",
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha"
+  },
+  "author": "ephoton",
+  "license": "MIT",
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ephoton/language-detector.git"
+  },
+  "keywords": [
+    "language-detector"
+  ],
+  "bugs": {
+    "url": "https://github.com/ephoton/language-detector/issues"
+  },
+  "homepage": "https://github.com/ephoton/language-detector#readme"
+}

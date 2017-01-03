@@ -35,3 +35,25 @@ jspm_packages
 
 # Optional REPL history
 .node_repl_history
+
+/dist
+
+*.log
+
+.vscode
+
+run/
+coverage/
+logs/
+node_modules/
+
+.DS_Store
+.idea
+
+mocks_data
+
+mocks_data/proxy/**/__*
+
+.nicetmp
+
+!.eslintrc.js
