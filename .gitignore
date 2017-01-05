@@ -57,5 +57,3 @@ mocks_data/proxy/**/__*
 .nicetmp
 
 !.eslintrc.js
-
-/vender
