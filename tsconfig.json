@@ -1,13 +1,15 @@
 {
     "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
         "allowJs": false,
+        "newLine": "LF",
         "allowUnreachableCode": false,
         "allowUnusedLabels": false,
         "diagnostics": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
         "jsx": "react",
-        "module": "commonjs",
         "pretty": true,
         "removeComments": true,
         "noEmitOnError": true,
@@ -15,19 +17,19 @@
         "noImplicitReturns": true,
         "sourceMap": true,
         "strictNullChecks": true,
-        "target": "ES6",
+        "declaration": true,
+        "emitDecoratorMetadata": true,
+        "noImplicitThis": true,
+        "stripInternal": true,
+        "skipDefaultLibCheck": true,
         "outDir": "build"
     },
     "exclude": [
-        "dist",
+        "build",
         "jsx",
         "node_modules",
         "src/less",
         "static",
         "tools"
-    ],
-    "filesGlob": [
-        "typings",
-        "src"
     ]
 }
