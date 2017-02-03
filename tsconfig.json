@@ -9,7 +9,6 @@
         "diagnostics": true,
         "experimentalDecorators": true,
         "forceConsistentCasingInFileNames": true,
-        "jsx": "react",
         "pretty": true,
         "removeComments": true,
         "noEmitOnError": true,
@@ -26,10 +25,7 @@
     },
     "exclude": [
         "build",
-        "jsx",
         "node_modules",
-        "src/less",
-        "static",
         "tools"
     ]
 }
