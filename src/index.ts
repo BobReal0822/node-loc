@@ -152,7 +152,7 @@ export class LanguageDetector {
     fileInfo.fileType = this.getFileType(filePath);
 
     lines.map((line, index) => {
-      let languageType: string = lang(line);
+      let languageType: string = this.classify(line);
 
       if (!fileInfo.lines[languageType]) {
         fileInfo.lines[languageType] = 1;
