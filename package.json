@@ -5,12 +5,15 @@
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "mocha build/test"
+    "build": "tsc -w",
+    "test": "mocha build/test/index.js"
   },
   "author": "ephoton",
   "license": "MIT",
   "dependencies": {
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "language-classifier": "0.0.1",
     "language-map": "^1.2.0"
   },
   "directories": {
