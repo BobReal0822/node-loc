@@ -1,6 +1,6 @@
 {
   "name": "language-detector",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "ts-lib  [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ts-lib)",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
