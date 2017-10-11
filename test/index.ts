@@ -8,7 +8,7 @@ import { LanguageDetector } from './../src/';
 const languageMap = require('language-map');
 const lang = require('language-classifier');
 
-const JsPath = Path.join(__dirname, '../..', 'data/test1.js');
+const JsPath = Path.join(__dirname, '../..', 'data/test.js');
 
 describe('Test node-language-detect', () => {
   describe('javascipt', () => {
