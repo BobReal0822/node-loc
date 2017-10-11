@@ -1,21 +1,21 @@
 /**
- * 
+ *
  */
-import * as Path from 'path';
 import * as assert from 'assert';
+import * as Path from 'path';
 import { LanguageDetector } from './../src/';
 
 const languageMap = require('language-map');
 const lang = require('language-classifier');
 
-const JsPath = Path.join(__dirname, '../..', 'data/test1.cpp');
+const JsPath = Path.join(__dirname, '../..', 'data/test1.js');
 
 describe('Test node-language-detect', () => {
   describe('javascipt', () => {
     it('should return javascipt: ', () => {
         console.log('JsPath: ', JsPath);
         console.log('-----: ', LanguageDetector.getFileType(JsPath));
-        console.log("___________get file info: ", LanguageDetector.getFileInfo(JsPath));
+        console.log('___________get file info: ', LanguageDetector.getFileInfo(JsPath));
     });
   });
 });
@@ -23,7 +23,7 @@ describe('Test node-language-detect', () => {
 describe('Test node-language-classifier', () => {
   describe('javascipt', () => {
     it('should return javascipt: ', () => {
-        console.log('-----: ',lang('var a = 2;'));
+        console.log('-----: ', lang('var a = 2;'));
     });
   });
 

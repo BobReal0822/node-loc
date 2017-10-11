@@ -1,10 +1,16 @@
-
 language: node_js
 node_js:
-- '6'
+- '7'
 before_script:
 - npm run build
+after_success:
+- npm run coveralls
 deploy:
   provider: npm
   email: i@ephoton.me
   skip_cleanup: true
+  api_key:
+    secure: DvgIzm/IkuIDIMdgSaGGkOQGU0vaST1u3oiLAAk6hWie1y8UcekZQeQDj65tvDOrcHt0SOni6DK2cbSn1o5httLWao0Z0cwvS0XFo+hwUjDeYyAKWOQ6VluTokZuP7BMTl2QoyQgRYEJU6pv16r6ljbp3WZgqd0aLH6aU19ZJmHV5Pu5IJFBifmRQn+zaljBsN6TysC5ObVnw4knjZo1fo0nFZHiFyBUStEaM89WeCFbiqcDlEJb3rGVBrq5fs5NNGJeWFdvS0iJxpyedb9rOynTxXDAUQWERRaYNLOkeqb5jE30S+tVmGbilfwzXMig6uvSwU9rWnavuzpUKZ4ObBchR6e9PPPajCBOvWyOhM3dbr8311OLNdPjS28HUvlmSyMz9jj70sCQ8ZNiM2PL5Gh4/6XVKJFTg6EC+S0a9JMf7lsbioljVXSs86OFfa258YZMyjrtB5bMcwCVhcRjK8dH7M4EnGk+DC1YIU67u7BHv9L9c7P5YNH3vR7BJASjtKP4fZY01huM3GtF4qS2h8B+J3sKFwg1WNAdp1vukCjsj6Uy+BaHL7QcaNppV6UGk/kn5T3F9WeD8VlaCFCprpnChjxcyHz9LMTFAxAgZdeEPTos+OM2GvwHo+0fCP8SxOI7xcFMtFMqk+BPSRWaWLFkHqC3Fs+ub+reD9siG3s=
+  on:
+    tags: true
+    node: '7'

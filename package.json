@@ -6,13 +6,16 @@
   "typings": "build/src/index.d.ts",
   "scripts": {
     "build": "tsc -w",
-    "test": "mocha build/test/index.js"
+    "clean": "rm -rf dist",
+    "bare-test": "mocha build/test/index.js",
+    "test": "istanbul cover mocha build/test/index.js",
+    "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "author": "ephoton",
   "license": "MIT",
   "dependencies": {
-    "@types/mocha": "^2.2.40",
-    "@types/node": "^7.0.12",
+    "@types/mocha": "^2.2.43",
+    "@types/node": "^8.0.34",
     "language-classifier": "0.0.1",
     "language-map": "^1.2.0"
   },
@@ -20,8 +23,11 @@
     "test": "test"
   },
   "devDependencies": {
-    "mocha": "^3.2.0",
-    "typescript": "^2.1.4"
+    "@types/chai": "^4.0.4",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "mocha": "^4.0.1",
+    "typescript": "^2.5.3"
   },
   "repository": {
     "type": "git",
