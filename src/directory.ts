@@ -105,7 +105,12 @@ export class LangDirectory {
    * @returns {LineInfo}
    * @memberof LangDirectory
    */
-  public getInfo(): LineInfo {
-    return this.info;
+  public getInfo() {
+    const { info, languages } = this;
+
+    return {
+      info,
+      languages
+    };
   }
 }

@@ -14,3 +14,8 @@ export function getVersion(): string {
 
     return packageInfo && packageInfo.version || 'invalid version!';
 }
+
+export const ExtensionJustify = {
+    '.ts': 'typescript',
+    '.tsx': 'tsx'
+};

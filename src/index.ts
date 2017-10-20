@@ -10,24 +10,29 @@ import { getVersion } from './utils';
 program
   .version(getVersion())
   .option('-f --file <file>', 'Detecte a file.', file => {
-    console.log(`file in program: ${ file }`);
-
-    const lang = new LangFile(file);
-    console.log('file info: ', lang.getInfo().lines);
+    const info = new LangFile(file).getInfo();
+    console.log(chalk.default.cyan(`
+      path: \t${ file }
+      language: \t${ info.lang }
+      total lines: \t${ String(info.lines.total) }
+      code lines: \t${ String(info.lines.code) }
+      comment lines: \t${ String(info.lines.comment) }
+    `));
   })
   .option('-d --directory [directory]', 'Detecte a directory.', directory => {
     console.log(`directory in program: `, directory);
-    const lang = new LangDirectory(directory);
+    const { info, languages } = new LangDirectory(directory).getInfo();
 
-    console.log('directory info: ', lang.getInfo());
+    console.log(chalk.default.cyan(`
+      \ttotal lines: \t${ String(info.total) }
+      \tcode lines: \t${ String(info.code) }
+      \tcomment lines: \t${ String(info.comment) }
+      \t--------------------${
+        Object.keys(languages).map(key => {
+          return `\n\t${ key } \t ${ String(languages[key]) }`;
+        }).join('')
+      }`));
   })
-  // .option('-p --pattern [pattern]', 'File glob pattern for detecting a directory', pattern => {
-  //   console.log(`pattern in program: `, pattern);
-
-  //   const lang = new LangDirectory(pattern);
-
-  //   console.log('directory info: ', lang.getInfo());
-  // })
   .parse(process.argv);
 
 export * from './file';

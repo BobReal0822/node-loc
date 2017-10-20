@@ -5,6 +5,8 @@ import { Deflate } from 'zlib';
 import * as Fs from 'fs';
 import * as Path from 'path';
 
+import { ExtensionJustify } from './utils';
+
 // tslint:disable-next-line
 const languageMap = require('language-map');
 // tslint:disable-next-line
@@ -57,7 +59,7 @@ export class Detector {
       });
     });
 
-    return extensions;
+    return Object.assign({}, extensions, ExtensionJustify);
   }
 
   /**
