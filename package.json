@@ -11,7 +11,7 @@
     "build": "tsc",
     "clean": "rm -rf dist",
     "bare-test": "mocha build/test/index.js",
-    "test": "istanbul cover mocha build/test/index.js",
+    "test": "istanbul cover _mocha build/test/index.js",
     "coveralls": "cat coverage/lcov.info | coveralls"
   },
   "author": "ephoton",
