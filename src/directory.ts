@@ -12,6 +12,12 @@ const DefaultInfo: LineInfo = {
     comment: 0
 };
 
+/**
+ * Collect info of a directory.
+ *
+ * @export
+ * @class LangDirectory
+ */
 export class LangDirectory {
   private pattern: string;
   private info: LineInfo;
@@ -20,18 +26,32 @@ export class LangDirectory {
     [key: string]: number;
   };
 
+  /**
+   * Creates an instance of LangDirectory.
+   * @param {string} pattern
+   * @memberof LangDirectory
+   */
   constructor(pattern: string) {
     this.pattern = pattern;
     const { files, info, languages } = this.loadInfo();
     this.files = files;
     this.info = info;
     this.languages = languages;
-
-    console.log('this info: ', info);
-    console.log('this files: ', files.map(file => file.getInfo()));
-    console.log('this langs: ', languages);
   }
 
+  /**
+   * load directory info.
+   *
+   * @private
+   * @returns {{
+   *     files: LangFile[],
+   *     info: LineInfo,
+   *     languages: {
+   *       [key: string]: number;
+   *     }
+   *   }}
+   * @memberof LangDirectory
+   */
   private loadInfo(): {
     files: LangFile[],
     info: LineInfo,
@@ -39,7 +59,6 @@ export class LangDirectory {
       [key: string]: number;
     }
   } {
-      // '!(node_modules|build|coverage)/**/*.+(ts|tsx|html|less|css)'
       const pathes = Glob.sync(this.pattern);
       const files: LangFile[] = [];
       const info: LineInfo = _.cloneDeep(DefaultInfo);
@@ -70,10 +89,22 @@ export class LangDirectory {
       };
   }
 
+  /**
+   * Return detect pattern of the directory.
+   *
+   * @returns {string}
+   * @memberof LangDirectory
+   */
   public getPattern(): string {
     return this.pattern;
   }
 
+  /**
+   * Return data detected.
+   *
+   * @returns {LineInfo}
+   * @memberof LangDirectory
+   */
   public getInfo(): LineInfo {
     return this.info;
   }

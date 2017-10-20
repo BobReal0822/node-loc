@@ -4,6 +4,9 @@
   "description": "ts-lib  [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ts-lib)",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
+  "bin": {
+    "lang": "bin/lang"
+  },
   "scripts": {
     "build": "tsc -2",
     "clean": "rm -rf dist",

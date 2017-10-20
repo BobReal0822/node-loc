@@ -25,7 +25,7 @@ describe('Detector', () => {
 
   describe('.getExtensionMap', () => {
     it('should return equals', () => {
-      const map = detector.getExtensionMap();
+      const map = Detector.getExtensionMap();
 
       // console.log('-------- in map: \n', map);c
       map['.js'].should.equal('javascript');

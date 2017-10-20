@@ -71,7 +71,7 @@ export class LangFile {
    */
   static getType(path: string): string {
     const fileExtension = '.' + path.split('.').pop();
-    const extensionMap = new Detector().getExtensionMap();
+    const extensionMap = Detector.getExtensionMap();
 
     return extensionMap[fileExtension] || '';
   }

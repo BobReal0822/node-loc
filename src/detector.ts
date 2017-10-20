@@ -24,7 +24,7 @@ export interface DetectorOptions {
  * @class LanguageDetector
  */
 export class Detector {
-  private extensionMap: {
+  static extensionMap: {
     [key: string]: string;
   } = {};
   private options: DetectorOptions;
@@ -35,7 +35,7 @@ export class Detector {
    * @memberof Detector
    */
   constructor(options?: DetectorOptions) {
-    this.extensionMap = this.loadExtensionMap();
+    Detector.extensionMap = this.loadExtensionMap();
   }
 
   /**
@@ -78,7 +78,7 @@ export class Detector {
    * @returns
    * @memberof Detector
    */
-  public getExtensionMap() {
-    return this.extensionMap;
+  public static getExtensionMap() {
+    return Detector.extensionMap;
   }
 }
