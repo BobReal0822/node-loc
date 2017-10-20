@@ -9,20 +9,24 @@ import { getVersion } from './utils';
 
 program
   .version(getVersion())
-  .option('-f --file <file>', 'Detecte a file.', file => {
-    const info = new LangFile(file).getInfo();
+  .command('file <path>')
+  .description('detect a file')
+  .action(path => {
+    const info = new LangFile(path).getInfo();
     console.log(chalk.default.cyan(`
-      path: \t${ file }
+      path: \t\t${ path }
       language: \t${ info.lang }
       total lines: \t${ String(info.lines.total) }
       code lines: \t${ String(info.lines.code) }
       comment lines: \t${ String(info.lines.comment) }
     `));
-  })
-  .option('-d --directory [directory]', 'Detecte a directory.', directory => {
-    console.log(`directory in program: `, directory);
-    const { info, languages } = new LangDirectory(directory).getInfo();
+  });
 
+program
+  .command('dir <pattern>')
+  .description('detect a directory with a pattern')
+  .action(pattern => {
+    const { info, languages } = new LangDirectory(pattern).getInfo();
     console.log(chalk.default.cyan(`
       \ttotal lines: \t${ String(info.total) }
       \tcode lines: \t${ String(info.code) }
@@ -32,8 +36,9 @@ program
           return `\n\t${ key } \t ${ String(languages[key]) }`;
         }).join('')
       }`));
-  })
-  .parse(process.argv);
+  });
+
+program.parse(process.argv);
 
 export * from './file';
 export * from './directory';
