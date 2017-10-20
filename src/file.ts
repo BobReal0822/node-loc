@@ -6,7 +6,7 @@ import * as Fs from 'fs-extra';
 import * as _ from 'lodash';
 import * as Path from 'path';
 
-import { Detector } from './detector';
+import { Languages } from './languages';
 
 export interface LineInfo {
   total: number;
@@ -38,17 +38,17 @@ const DefaultFileInfo: FileInfo = {
  * collect language info of a file
  *
  * @export
- * @class LangFile
+ * @class LocFile
  */
-export class LangFile {
+export class LocFile {
   private path: string;
   private file: File;
   private data: FileInfo;
 
   /**
-   * Creates an instance of LangFile.
+   * Creates an instance of LocFile.
    * @param {string} filePath
-   * @memberof LangFile
+   * @memberof LocFile
    */
   constructor(filePath: string) {
     if (!Fs.existsSync(filePath)) {
@@ -67,16 +67,16 @@ export class LangFile {
    * @private
    * @param {string} path
    * @returns {string}
-   * @memberof LangFile
+   * @memberof LocFile
    */
   static getType(path: string): string {
     const fileExtension = '.' + path.split('.').pop();
 
-    if (!Object.keys(Detector.extensionMap).length) {
-      const detector = new Detector();
+    if (!Object.keys(Languages.extensionMap).length) {
+      const detector = new Languages();
     }
 
-    return  Detector.extensionMap[fileExtension] || '';
+    return  Languages.extensionMap[fileExtension] || '';
   }
 
   /**
@@ -85,7 +85,7 @@ export class LangFile {
    * @private
    * @param {string} data
    * @returns {LineInfo}
-   * @memberof LangFile
+   * @memberof LocFile
    */
   private filteData(data: string): LineInfo {
     const lines = data.split(/\n/);
@@ -105,11 +105,11 @@ export class LangFile {
   }
 
   /**
-   * get file info when LangFile init
+   * get file info when LocFile init
    *
    * @private
    * @returns {FileInfo}
-   * @memberof LangFile
+   * @memberof LocFile
    */
   private getFileInfo(): FileInfo {
     const info: FileInfo = Object.assign({}, DefaultFileInfo);
@@ -128,7 +128,7 @@ export class LangFile {
     lines = data.split(/\n/);
     info.name = name;
     info.size = stat && stat.size || 0;
-    info.lang = LangFile.getType(this.path);
+    info.lang = LocFile.getType(this.path);
     info.lines = this.filteData(data);
 
     return info;
@@ -138,7 +138,7 @@ export class LangFile {
    * return file path
    *
    * @returns {string}
-   * @memberof LangFile
+   * @memberof LocFile
    */
   public getPath(): string {
     return this.path;
@@ -148,7 +148,7 @@ export class LangFile {
    * return file info
    *
    * @returns {FileInfo}
-   * @memberof LangFile
+   * @memberof LocFile
    */
   public getInfo(): FileInfo {
     return this.data;

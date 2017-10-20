@@ -4,7 +4,7 @@ import * as Globby from 'globby';
 import * as _ from 'lodash';
 import * as Path from 'path';
 
-import { LangFile, LineInfo } from './file';
+import { LineInfo, LocFile } from './file';
 
 const DefaultInfo: LineInfo = {
     total: 0,
@@ -16,20 +16,20 @@ const DefaultInfo: LineInfo = {
  * Collect info of a directory.
  *
  * @export
- * @class LangDirectory
+ * @class LocDir
  */
-export class LangDirectory {
+export class LocDir {
   private pattern: string;
   private info: LineInfo;
-  private files: LangFile[];
+  private files: LocFile[];
   private languages: {
     [key: string]: number;
   };
 
   /**
-   * Creates an instance of LangDirectory.
+   * Creates an instance of LocDir.
    * @param {string} pattern
-   * @memberof LangDirectory
+   * @memberof LocDir
    */
   constructor(pattern: string) {
     this.pattern = pattern;
@@ -50,17 +50,17 @@ export class LangDirectory {
    *       [key: string]: number;
    *     }
    *   }}
-   * @memberof LangDirectory
+   * @memberof LocDir
    */
   private loadInfo(): {
-    files: LangFile[],
+    files: LocFile[],
     info: LineInfo,
     languages: {
       [key: string]: number;
     }
   } {
       const pathes = Glob.sync(this.pattern);
-      const files: LangFile[] = [];
+      const files: LocFile[] = [];
       const info: LineInfo = _.cloneDeep(DefaultInfo);
       const languages: {
         [key: string]: number;
@@ -69,7 +69,7 @@ export class LangDirectory {
       pathes.map(path => {
         if (path) {
           const fullPath = Path.resolve('./', path);
-          const file = new LangFile(fullPath);
+          const file = new LocFile(fullPath);
           const fileLineInfo = file.getInfo().lines;
           const lang = file.getInfo().lang;
 
@@ -93,7 +93,7 @@ export class LangDirectory {
    * Return detect pattern of the directory.
    *
    * @returns {string}
-   * @memberof LangDirectory
+   * @memberof LocDir
    */
   public getPattern(): string {
     return this.pattern;
@@ -103,7 +103,7 @@ export class LangDirectory {
    * Return data detected.
    *
    * @returns {LineInfo}
-   * @memberof LangDirectory
+   * @memberof LocDir
    */
   public getInfo() {
     const { info, languages } = this;

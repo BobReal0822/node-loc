@@ -4,28 +4,28 @@
 import * as Chai from 'chai';
 import * as Mocha from 'mocha';
 import * as Path from 'path';
-// tslint:disable-next-line
-import 'source-map-support/register';
 
-import { Detector } from './../src/detector';
-import { LangDirectory } from './../src/directory';
-import { LangFile } from './../src/file';
+import { LocDir } from './../src/directory';
+import { LocFile } from './../src/file';
+import { Languages } from './../src/languages';
 
 // tslint:disable-next-line
 const languageMap = require('language-map');
 // tslint:disable-next-line
 const lang = require('language-classifier');
+// tslint:disable-next-line
+import 'source-map-support/register';
+
 const { assert, expect } = Chai;
 const should = Chai.should();
-
 const JsPath = Path.join(__dirname, '../..', 'test/data/index.js');
 
-describe('Detector', () => {
-  const detector = new Detector();
+describe('Languages', () => {
+  const languange = new Languages();
 
   describe('.getExtensionMap', () => {
     it('should return equals', () => {
-      const map = Detector.getExtensionMap();
+      const map = Languages.getExtensionMap();
 
       // console.log('-------- in map: \n', map);c
       map['.js'].should.equal('javascript');
@@ -38,9 +38,9 @@ describe('Detector', () => {
   });
 });
 
-describe('LangFile', () => {
+describe('LocFile', () => {
   console.log('JsPath: ', JsPath);
-  const file = new LangFile(JsPath);
+  const file = new LocFile(JsPath);
 
   describe('.getPath', () => {
     it('should return file path.', () => {
@@ -56,8 +56,8 @@ describe('LangFile', () => {
 });
 
 
-describe('LangDirectory', () => {
-  const file = new LangDirectory('!(node_modules|build|coverage)/**/*.+(js|jsx|ts|tsx|html|less|css)');
+describe('LocDir', () => {
+  const file = new LocDir('!(node_modules|build|coverage)/**/*.+(js|jsx|ts|tsx|html|less|css)');
 
   describe('.getPath', () => {
     it('should return file path.', () => {
