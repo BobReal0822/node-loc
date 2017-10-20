@@ -6,6 +6,8 @@ import * as Fs from 'fs-extra';
 import * as _ from 'lodash';
 import * as Path from 'path';
 
+import { Detector } from './detector';
+
 export interface LineInfo {
   total: number;
   code: number;
@@ -14,7 +16,7 @@ export interface LineInfo {
 
 export interface FileInfo {
   name: string;
-  type: string;
+  lang: string;
   size: number;
   lines: LineInfo;
 }
@@ -27,7 +29,7 @@ const DefaultLine: LineInfo = {
 
 const DefaultFileInfo: FileInfo = {
   name: '',
-  type: '',
+  lang: '',
   size: 0,
   lines: DefaultLine
 };
@@ -67,12 +69,11 @@ export class LangFile {
    * @returns {string}
    * @memberof LangFile
    */
-  private getType(path: string): string {
+  static getType(path: string): string {
     const fileExtension = '.' + path.split('.').pop();
+    const extensionMap = new Detector().getExtensionMap();
 
-    // console.log('fileName & extension in getType: ', fileExtension);
-
-    return '';
+    return extensionMap[fileExtension] || '';
   }
 
   /**
@@ -86,13 +87,14 @@ export class LangFile {
   private filteData(data: string): LineInfo {
     const lines = data.split(/\n/);
     const lineData: LineInfo = Object.assign({}, DefaultLine, {
-      total: lines.length
+      total: lines.length,
+      code: lines.length
     });
 
     lines.map(line => {
       // todo: filter
       if (!line) {
-        lineData.total --;
+        lineData.code --;
       }
     });
 
@@ -120,11 +122,10 @@ export class LangFile {
       throw new Error('read file failed.');
     }
 
-    console.log('file state: ', stat);
     lines = data.split(/\n/);
     info.name = name;
     info.size = stat && stat.size || 0;
-    info.type = this.getType(this.path);
+    info.lang = LangFile.getType(this.path);
     info.lines = this.filteData(data);
 
     return info;

@@ -8,6 +8,7 @@ import * as Path from 'path';
 import 'source-map-support/register';
 
 import { Detector } from './../src/detector';
+import { LangDirectory } from './../src/directory';
 import { LangFile } from './../src/file';
 
 // tslint:disable-next-line
@@ -26,7 +27,7 @@ describe('Detector', () => {
     it('should return equals', () => {
       const map = detector.getExtensionMap();
 
-      console.log('-------- in map: \n', map);
+      // console.log('-------- in map: \n', map);c
       map['.js'].should.equal('javascript');
       map['.jsx'].should.equal('jsx');
       // map['.ts'].should.equal('typescript');
@@ -53,3 +54,13 @@ describe('LangFile', () => {
   });
 });
 
+
+describe('LangDirectory', () => {
+  const file = new LangDirectory('!(node_modules|build|coverage)/**/*.+(js|jsx|ts|tsx|html|less|css)');
+
+  describe('.getPath', () => {
+    it('should return file path.', () => {
+      // file.getPath().should.equal(JsPath);
+    });
+  });
+});
