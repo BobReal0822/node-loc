@@ -18,7 +18,7 @@ const lang = require('language-classifier');
 const { assert, expect } = Chai;
 const should = Chai.should();
 
-const JsPath = Path.join(__dirname, '../..', 'data/test.js');
+const JsPath = Path.join(__dirname, '../..', 'test/data/index.js');
 
 describe('Detector', () => {
   const detector = new Detector();
@@ -39,6 +39,7 @@ describe('Detector', () => {
 });
 
 describe('LangFile', () => {
+  console.log('JsPath: ', JsPath);
   const file = new LangFile(JsPath);
 
   describe('.getPath', () => {
