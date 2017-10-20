@@ -22,7 +22,7 @@ You can use node-cloc in you ternimal, or as a npm package in your projects.
 
 ### Command line mode
 
-for a file or a directory.
+Support CLOC of a file or directory.
 
 #### 1. a file
 ```bash
@@ -39,6 +39,7 @@ loc dir **/*.ts
 ![loc dir <pattern>](https://user-images.githubusercontent.com/3739221/31838695-9f94a340-b5a3-11e7-914a-91629d2cfa9f.png)
 
 ### Third-party mode(in TypeScript)
+
 ```
 import { LocFile, LocDir } from 'node-loc';
 
@@ -51,6 +52,7 @@ const dir = new LocDir(pattern);
 const { info } = dir.getInfo();
 ```
 
+### Features
 - Support both command line mode and third-party package mode.
 - Written in TypeScript with complete define types.
 
