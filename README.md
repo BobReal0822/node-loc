@@ -1,4 +1,4 @@
-language-detector [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ts-lib)
+[![npm version](https://badge.fury.io/js/node-loc.svg)](https://www.npmjs.com/package/node-loc)
 
 ======
 

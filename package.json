@@ -8,7 +8,7 @@
     "loc": "bin/loc"
   },
   "scripts": {
-    "build": "tsc -2",
+    "build": "tsc",
     "clean": "rm -rf dist",
     "bare-test": "mocha build/test/index.js",
     "test": "istanbul cover mocha build/test/index.js",
