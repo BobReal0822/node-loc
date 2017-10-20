@@ -1,11 +1,11 @@
 {
-  "name": "node-language-detector",
+  "name": "node-loc",
   "version": "1.0.2",
   "description": "ts-lib  [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ts-lib)",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
   "bin": {
-    "lang": "bin/lang"
+    "loc": "bin/loc"
   },
   "scripts": {
     "build": "tsc -2",
@@ -49,13 +49,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ephoton/language-detector.git"
+    "url": "git+https://github.com/ephoton/node-loc.git"
   },
   "keywords": [
-    "language-detector"
+    "loc",
+    "cloc",
+    "node-loc",
+    "lines of code"
   ],
   "bugs": {
-    "url": "https://github.com/ephoton/language-detector/issues"
+    "url": "https://github.com/ephoton/node-loc/issues"
   },
-  "homepage": "https://github.com/ephoton/language-detector#readme"
+  "homepage": "https://github.com/ephoton/node-loc#readme"
 }
