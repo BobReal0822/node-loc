@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/ephoton/node-loc/badge.svg?branch=master)](https://coveralls.io/github/ephoton/node-loc?branch=master)
 
 # node-loc
-💻 Count the number of lines of code written in TypeScript, inspired by [cloc](https://github.com/AlDanial/cloc).
+💻 Counts the number of lines of code, written in TypeScript.(https://github.com/AlDanial/cloc).
 
 ## Prerequisites
 - Node.js 6+
