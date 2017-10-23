@@ -16,6 +16,6 @@ export function getVersion(): string {
 }
 
 export const ExtensionJustify = {
-    '.ts': 'typescript',
-    '.tsx': 'tsx'
+    '.ts': 'TypeScript',
+    '.tsx': 'TypeScript React'
 };

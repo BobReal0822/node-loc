@@ -80,7 +80,7 @@ describe('LocFile', () => {
 
   describe('.getContentInfo', () => {
     it('should return file info.', () => {
-      console.log('file info: ', file.getFileInfoByContent('README.md', testData));
+      console.log('file info: ', LocFile.getFileInfoByContent('README.md', testData));
     });
   });
 });
