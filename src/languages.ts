@@ -10,7 +10,7 @@ import { ExtensionJustify } from './utils';
 // tslint:disable-next-line
 const languageMap = require('language-map');
 // tslint:disable-next-line
-const lang = require('language-classifier');
+// const lang = require('language-classifier');
 
 interface ExtensionsTypes {
   [key: string]: string;
@@ -70,9 +70,9 @@ export class Languages {
    *
    * @memberOf LanguageDetector
    */
-  public static classify(codeSnippet: string) {
-    return codeSnippet ? lang(codeSnippet) : '';
-  }
+  // public static classify(codeSnippet: string) {
+  //   return codeSnippet ? lang(codeSnippet) : '';
+  // }
 
   /**
    * return extension map
