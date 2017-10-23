@@ -111,16 +111,15 @@ export class LocFile {
    * @returns {FileInfo}
    * @memberof LocFile
    */
-  private getFileInfo(): FileInfo {
+  private getFileInfo(data?: string): FileInfo {
     const info: FileInfo = Object.assign({}, DefaultFileInfo);
     const name = this.path.split(Path.sep).pop() || '';
     let stat: Fs.Stats;
-    let data: string;
     let lines: string[];
 
     try {
       stat = Fs.statSync(this.path);
-      data = Fs.readFileSync(this.path, 'utf-8');
+      data = data || Fs.readFileSync(this.path, 'utf-8');
     } catch (err) {
       throw new Error('read file failed.');
     }
@@ -152,5 +151,26 @@ export class LocFile {
    */
   public getInfo(): FileInfo {
     return this.data;
+  }
+
+  public getFileInfoByContent(name: string, data: string): FileInfo {
+    const info: FileInfo = Object.assign({}, DefaultFileInfo);
+    let stat: Fs.Stats;
+    let lines: string[];
+
+    try {
+      stat = Fs.statSync(this.path);
+      data = data || Fs.readFileSync(this.path, 'utf-8');
+    } catch (err) {
+      throw new Error('read file failed.');
+    }
+
+    lines = data.split(/\n/);
+    info.name = name;
+    info.size = stat && stat.size || 0;
+    info.lang = LocFile.getType(name);
+    info.lines = this.filteData(data);
+
+    return info;
   }
 }
