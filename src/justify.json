@@ -1,4 +1,4 @@
 {
-    ".ts": "TypeScript",
-    ".tsx": "TypeScript React"
+    ".ts": "typescript",
+    ".tsx": "tsx"
 }
