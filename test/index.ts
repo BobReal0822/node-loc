@@ -12,7 +12,7 @@ import { Languages } from './../src/languages';
 // tslint:disable-next-line
 const languageMap = require('language-map');
 // tslint:disable-next-line
-const lang = require('language-classifier');
+// const lang = require('language-classifier');
 // tslint:disable-next-line
 import 'source-map-support/register';
 
