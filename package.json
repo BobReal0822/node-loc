@@ -1,11 +1,11 @@
 {
   "name": "node-loc",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "ts-lib  [![npm](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/ts-lib)",
   "main": "build/src/index.js",
   "typings": "build/src/index.d.ts",
   "bin": {
-    "loc": "bin/loc"
+    "loc": "./build/src/index.js"
   },
   "scripts": {
     "build": "tsc",
