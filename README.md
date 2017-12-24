@@ -24,14 +24,14 @@ You can use node-cloc in you ternimal, or as a npm package in your projects.
 
 Support CLOC of a file or directory.
 
-#### 1. a file
+#### 1. file
 ```bash
 # loc file <path>
 loc file src/index.ts
 ```
 ![loc file <path>](https://user-images.githubusercontent.com/3739221/31838697-9fdec114-b5a3-11e7-890e-795444bc9400.png)
 
-#### 2. a directory
+#### 2. directory
 ```bash
 # loc dir <pattern>
 loc dir **/*.ts
